@@ -240,7 +240,8 @@ export default {
       )
     },
     changeTab(component) {
-      const tab = component.$attrs.tab
+      console.log(component)
+      const tab = component.instance.attrs.tab
       this.$router.push({
         name: tab.name,
         query: tab.query,

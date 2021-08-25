@@ -1,7 +1,7 @@
 <template>
   <div class="big">
     <el-row class="card">
-      <el-col :xs="24" :lg="16" :md="16">
+      <el-col :xs="24" :lg="16" :md="16" style="height:90px">
         <div class="car-left">
           <el-row>
             <el-col :xs="4" :md="3" :lg="3">
@@ -169,7 +169,7 @@ export default {
 <style lang="scss" scoped>
 .big {
   margin: 100px 0 0 0;
-  padding-top: 0;
+  padding-top: 10px;
   background-color: rgb(243, 243, 243);
   .top {
     width: 100%;

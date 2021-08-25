@@ -45,8 +45,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('router', ['routerList'])
+    ...mapGetters('router', ['routerList']),
   },
+
   methods: {
     changeRouter() {
       this.$router.push({ name: this.value })
