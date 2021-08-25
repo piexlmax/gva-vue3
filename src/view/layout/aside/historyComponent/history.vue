@@ -34,6 +34,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { emitter } from '@/utils/bus.js'
+
 const getFmtString = (item) => {
   return item.name +
       JSON.stringify(item.query) +
@@ -77,15 +79,15 @@ export default {
       sessionStorage.setItem('historys', JSON.stringify(this.historys))
       this.activeValue = window.sessionStorage.getItem('activeValue')
       if (now && to && now.name === to.name) {
-        this.$bus.$emit('reload')
+        emitter.$emit('reload')
       }
     }
   },
   created() {
-    this.$bus.on('mobile', isMobile => {
+    emitter.on('mobile', isMobile => {
       this.isMobile = isMobile
     })
-    this.$bus.on('collapse', isCollapse => {
+    emitter.on('collapse', isCollapse => {
       this.isCollapse = isCollapse
     })
     const initHistorys = [
@@ -109,8 +111,8 @@ export default {
   },
 
   beforeDestroy() {
-    this.$bus.off('collapse')
-    this.$bus.off('mobile')
+    emitter.off('collapse')
+    emitter.off('mobile')
   },
   methods: {
     name(item) {

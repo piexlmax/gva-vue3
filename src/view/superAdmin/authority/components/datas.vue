@@ -95,7 +95,7 @@ export default {
     },
     //   选择
     selectAuthority() {
-      this.row.dataAuthorityId = this.dataAuthorityId
+      this.$emit('changeRow', 'dataAuthorityId', this.dataAuthorityId)
       this.needConfirm = true
     }
   }

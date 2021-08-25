@@ -1,5 +1,5 @@
 <template>
-  <el-sub-menu ref="subMenu" :popper-append-to-body="false" :index="routerInfo.name">
+  <el-sub-menu ref="subMenu" :index="routerInfo.name">
     <template #title>
       <i :class="'el-icon-'+routerInfo.meta.icon" />
       <span>{{ routerInfo.meta.title }}</span>

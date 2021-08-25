@@ -535,6 +535,27 @@ li {
 
 // 导航
 #app {
+    .pd-lr-15{
+        padding:0 15px;
+    }
+    .height-full{
+        height: 100%;
+    }
+    .width-full{
+        width: 100%;
+    }
+    .dp-flex{
+        display: flex;
+    }
+    .justify-content-center{
+        justify-content: center;
+    }
+    .align-items{
+        align-items: center;
+    }
+    .pd-0{
+        padding:0;
+    }
     .el-container {
         position: relative;
         height: 100%;

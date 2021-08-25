@@ -83,7 +83,7 @@ export default {
       const res = await updateAuthority({ authorityId: this.row.authorityId, AuthorityName: this.row.authorityName, parentId: this.row.parentId, defaultRouter: data.name })
       if (res.code === 0) {
         this.$message({ type: 'success', message: '设置成功' })
-        this.row.defaultRouter = res.data.authority.defaultRouter
+        this.$emit('changeRow', 'defaultRouter', res.data.authority.defaultRouter)
       }
     },
     nodeChange() {

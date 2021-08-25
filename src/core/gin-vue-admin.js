@@ -4,14 +4,12 @@
 * */
 // time line css
 import '../../node_modules/timeline-vuejs/dist/timeline-vuejs.css'
-// 路由守卫
-import { install } from '@/utils/bus'
+
 // 加载网站配置文件夹
 import config from './config'
 
 export const run = function(app) {
   app.config.globalProperties.$GIN_VUE_ADMIN = config
-  install(app)
 
   // app.use(uploader)
 

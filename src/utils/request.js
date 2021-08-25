@@ -1,7 +1,7 @@
 import axios from 'axios' // 引入axios
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { store } from '@/store'
-import { emitterBox } from '@/utils/bus.js'
+import { emitter } from '@/utils/bus.js'
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
@@ -16,7 +16,7 @@ const showLoading = () => {
   }
   timer = setTimeout(() => {
     if (acitveAxios > 0) {
-      emitterBox.emitter.emit('showLoading')
+      emitter.emit('showLoading')
     }
   }, 400)
 }
@@ -25,7 +25,7 @@ const closeLoading = () => {
   acitveAxios--
   if (acitveAxios <= 0) {
     clearTimeout(timer)
-    emitterBox.emitter.emit('closeLoading')
+    emitter.emit('closeLoading')
   }
 }
 // http request 拦截器

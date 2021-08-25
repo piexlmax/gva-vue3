@@ -159,7 +159,7 @@ export default {
         const authorityIds = user.authorities && user.authorities.map(i => {
           return i.authorityId
         })
-        this.$set(user, 'authorityIds', authorityIds)
+        this.user.authorityIds = authorityIds
       })
     },
     openHeaderChange() {

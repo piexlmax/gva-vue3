@@ -25,6 +25,8 @@
 <script>
 import { mapGetters, mapMutations } from 'vuex'
 import AsideComponent from '@/view/layout/aside/asideComponent'
+import { emitter } from '@/utils/bus.js'
+
 export default {
   name: 'Aside',
   components: {
@@ -52,12 +54,12 @@ export default {
       this.isCollapse = !this.isCollapse
     }
 
-    this.$bus.on('collapse', item => {
+    emitter.on('collapse', item => {
       this.isCollapse = item
     })
   },
   beforeDestroy() {
-    this.$bus.off('collapse')
+    emitter.off('collapse')
   },
   methods: {
     ...mapMutations('history', ['addHistory']),
