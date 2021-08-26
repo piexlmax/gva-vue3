@@ -12,6 +12,13 @@ export default {
     }
   },
   methods: {
+    formatBoolean: function(bool) {
+      if (bool !== null) {
+        return bool ? '是' : '否'
+      } else {
+        return ''
+      }
+    },
     formatDate: function(time) {
       if (time !== null && time !== '') {
         var date = new Date(time)

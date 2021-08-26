@@ -86,14 +86,10 @@
     <div class="bottom">
       <el-row :gutter="32">
         <el-col :xs="24" :sm="24" :lg="12">
-          <div class="chart-player">
-            <!-- <music-player /> -->
-          </div>
+          <div class="chart-player" />
         </el-col>
         <el-col :xs="24" :sm="24" :lg="12">
-          <div class="chart-player">
-            <!-- <todo-list /> -->
-          </div>
+          <div class="chart-player" />
         </el-col>
       </el-row>
     </div>
@@ -101,17 +97,12 @@
 </template>
 
 <script>
-// import musicPlayer from './component/musicPlayer'
-// import TodoList from './component/todoList'
+
 import { mapGetters } from 'vuex'
 export default {
   name: 'Dashboard',
   components: {
-    // musicPlayer, // 音乐播放器
-    // TodoList // TodoList
-    // RaddarChart, //雷达图
-    // stackMap, //堆叠图
-    // Sunburst, //旭日图
+
   },
   data() {
     return {

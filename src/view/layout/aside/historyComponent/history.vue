@@ -124,7 +124,6 @@ export default {
       }
       let id = ''
       if (e.srcElement.nodeName === 'SPAN') {
-        console.log(e)
         id = e.srcElement.offsetParent.id
       } else {
         id = e.srcElement.id
@@ -240,7 +239,6 @@ export default {
       )
     },
     changeTab(component) {
-      console.log(component)
       const tab = component.instance.attrs.tab
       this.$router.push({
         name: tab.name,

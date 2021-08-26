@@ -9,7 +9,7 @@
       <el-form-item prop="icon" style="width:100%">
         <i
           class="icon"
-          :class="'el-icon-'+ meta.icon"
+          :class="'el-icon-'+ metaData.icon"
           style="position: absolute; z-index: 9999; padding: 5px 10px; "
         />
         <el-select v-model="metaData.icon" clearable filterable class="gva-select" placeholder="请选择">

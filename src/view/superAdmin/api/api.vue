@@ -24,7 +24,7 @@
         <el-form-item>
           <el-button size="mini" type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
           <el-button size="mini" type="primary" icon="el-icon-plus" @click="openDialog('addApi')">新增</el-button>
-          <el-popover v-model="deleteVisible" placement="top" width="160">
+          <el-popover v-model:visible="deleteVisible" placement="top" width="160">
             <p>确定要删除吗？</p>
             <div style="text-align: right; margin: 0">
               <el-button size="mini" type="text" @click="deleteVisible = false">取消</el-button>
@@ -52,11 +52,10 @@
             {{ scope.row.method }}
             <el-tag
               :key="scope.row.methodFiletr"
-              :type="scope.row.method|tagTypeFiletr"
+              :type="tagTypeFiletr(scope.row.method)"
               effect="dark"
               size="mini"
-            >{{ scope.row.method|methodFiletr }}</el-tag>
-            <!-- {{scope.row.method|methodFiletr}} -->
+            >{{ methodFiletr(scope.row.method) }}</el-tag>
           </div>
         </template>
       </el-table-column>
@@ -155,17 +154,6 @@ const methodOptions = [
 
 export default {
   name: 'Api',
-  filters: {
-    methodFiletr(value) {
-      const target = methodOptions.filter(item => item.value === value)[0]
-      // return target && `${target.label}(${target.value})`
-      return target && `${target.label}`
-    },
-    tagTypeFiletr(value) {
-      const target = methodOptions.filter(item => item.value === value)[0]
-      return target && `${target.type}`
-    }
-  },
   mixins: [infoList],
   data() {
     return {
@@ -200,6 +188,14 @@ export default {
     this.getTableData()
   },
   methods: {
+    methodFiletr(value) {
+      const target = methodOptions.filter(item => item.value === value)[0]
+      return target && `${target.label}`
+    },
+    tagTypeFiletr(value) {
+      const target = methodOptions.filter(item => item.value === value)[0]
+      return target && `${target.type}`
+    },
     //  选中api
     handleSelectionChange(val) {
       this.apis = val

@@ -33,7 +33,7 @@
     >
       <el-table-column type="selection" width="55" />
       <el-table-column label="日期" width="180">
-        <template #default="scope">{{ scope.row.CreatedAt|formatDate }}</template>
+        <template #default="scope">{{ formatDate(scope.row.CreatedAt) }}</template>
       </el-table-column>
 
       <el-table-column label="字典名（中）" prop="name" width="120" />
@@ -41,7 +41,7 @@
       <el-table-column label="字典名（英）" prop="type" width="120" />
 
       <el-table-column label="状态" prop="status" width="120">
-        <template #default="scope">{{ scope.row.status|formatBoolean }}</template>
+        <template #default="scope">{{ formatBoolean(scope.row.status) }}</template>
       </el-table-column>
 
       <el-table-column label="描述" prop="desc" width="280" />
@@ -50,7 +50,7 @@
         <template #default="scope">
           <el-button size="mini" type="success" @click="toDetile(scope.row)">详情</el-button>
           <el-button size="mini" type="primary" @click="updateSysDictionary(scope.row)">变更</el-button>
-          <el-popover v-model="scope.row.visible" placement="top" width="160">
+          <el-popover v-model:visible="scope.row.visible" placement="top" width="160">
             <p>确定要删除吗？</p>
             <div style="text-align: right; margin: 0">
               <el-button size="mini" type="text" @click="scope.row.visible = false">取消</el-button>
@@ -121,27 +121,9 @@ import {
   findSysDictionary,
   getSysDictionaryList
 } from '@/api/sysDictionary' //  此处请自行替换地址
-import { formatTimeToStr } from '@/utils/date'
 import infoList from '@/mixins/infoList'
 export default {
   name: 'SysDictionary',
-  filters: {
-    formatDate: function(time) {
-      if (time !== null && time !== '') {
-        var date = new Date(time)
-        return formatTimeToStr(date, 'yyyy-MM-dd hh:mm:ss')
-      } else {
-        return ''
-      }
-    },
-    formatBoolean: function(bool) {
-      if (bool !== null) {
-        return bool ? '是' : '否'
-      } else {
-        return ''
-      }
-    }
-  },
   mixins: [infoList],
   data() {
     return {

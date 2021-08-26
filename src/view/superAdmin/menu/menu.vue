@@ -54,6 +54,7 @@
 
     <el-dialog v-model="dialogFormVisible" :before-close="handleClose" :title="dialogTitle">
       <el-form
+        v-if="dialogFormVisible"
         ref="menuForm"
         :inline="true"
         :model="form"
@@ -71,7 +72,7 @@
         </el-form-item>
         <el-form-item prop="path" style="width:30%">
           <template #label>
-            <div style="display:inline-block">
+            <div style="display:inline-flex">
               路由path
               <el-checkbox v-model="checkFlag" style="float:right;margin-left:20px;">添加参数</el-checkbox>
             </div>
@@ -108,9 +109,7 @@
           <el-input v-model="form.meta.title" autocomplete="off" />
         </el-form-item>
         <el-form-item label="图标" prop="meta.icon" style="width:30%">
-          <icon :meta="form.meta">
-            <template #prepend>el-icon-</template>
-          </icon>
+          <icon :meta="form.meta" />
         </el-form-item>
         <el-form-item label="排序标记" prop="sort" style="width:30%">
           <el-input v-model.number="form.sort" autocomplete="off" />

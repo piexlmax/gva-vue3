@@ -30,7 +30,7 @@
       </el-table-column>
       <el-table-column label="操作" min-width="150">
         <template #default="scope">
-          <el-popover v-model="scope.row.visible" placement="top" width="160">
+          <el-popover v-model:visible="scope.row.visible" placement="top" width="160">
             <p>确定要删除此用户吗</p>
             <div style="text-align: right; margin: 0">
               <el-button size="mini" type="text" @click="scope.row.visible = false">取消</el-button>
@@ -74,7 +74,8 @@
         </el-form-item>
         <el-form-item label="用户角色" label-width="80px" prop="authorityId">
           <el-cascader
-            v-model="userInfo.authorityIds"
+            v-if="userInfo"
+            v-model:visible="userInfo.authorityIds"
             :options="authOptions"
             :show-all-levels="false"
             :props="{ multiple:true,checkStrictly: true,label:'authorityName',value:'authorityId',disabled:'disabled',emitPath:false}"
@@ -159,7 +160,7 @@ export default {
         const authorityIds = user.authorities && user.authorities.map(i => {
           return i.authorityId
         })
-        this.user.authorityIds = authorityIds
+        user.authorityIds = authorityIds
       })
     },
     openHeaderChange() {

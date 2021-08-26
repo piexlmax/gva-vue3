@@ -32,7 +32,7 @@
         </el-table-column>
         <el-table-column label="日期" prop="UpdatedAt" width="180">
           <template #default="scope">
-            <div>{{ scope.row.UpdatedAt | formatDate }}</div>
+            <div>{{ formatDate(scope.row.UpdatedAt) }}</div>
           </template>
         </el-table-column>
         <el-table-column label="文件名" prop="name" width="180" />
@@ -72,7 +72,6 @@ import { mapGetters } from 'vuex'
 import infoList from '@/mixins/infoList'
 import { getFileList, deleteFile } from '@/api/fileUploadAndDownload'
 import { downloadImage } from '@/utils/downloadImg'
-import { formatTimeToStr } from '@/utils/date'
 import CustomPic from '@/components/customPic'
 import UploadImage from '@/components/upload/image.vue'
 export default {
@@ -80,16 +79,6 @@ export default {
   components: {
     CustomPic,
     UploadImage
-  },
-  filters: {
-    formatDate: function(time) {
-      if (time !== null && time !== '') {
-        var date = new Date(time)
-        return formatTimeToStr(date, 'yyyy-MM-dd hh:mm:ss')
-      } else {
-        return ''
-      }
-    }
   },
   mixins: [infoList],
   data() {

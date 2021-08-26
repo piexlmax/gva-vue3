@@ -11,11 +11,12 @@ import { store } from '@/store/index'
 import { auth } from '@/directive/auth'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import App from './App.vue'
 const app = createApp(App)
 run(app)
 auth(app)
 app.config.productionTip = false
-app.use(store).use(router).use(ElementPlus).mount('#app')
+app.use(store).use(router).use(ElementPlus, { locale: zhCn }).mount('#app')
 
 export default app

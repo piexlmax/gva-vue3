@@ -113,7 +113,7 @@
             :disabled="(scope.$index + 1) === form.fields.length"
             @click="moveDownField(scope.$index)"
           >下移</el-button>
-          <el-popover v-model="scope.row.visible" placement="top">
+          <el-popover v-model:visible="scope.row.visible" placement="top">
             <p>确定删除吗？</p>
             <div style="text-align: right; margin: 0">
               <el-button size="mini" type="text" @click="scope.row.visible = false">取消</el-button>
