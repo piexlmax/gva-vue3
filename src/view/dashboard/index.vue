@@ -25,14 +25,14 @@
         <div class="car-right">
           <el-row>
             <el-col :span="8">
-              <div class="car-item">
+              <div class="card-item">
                 <span class="flow"><i class="el-icon-s-grid" /></span>
                 <span>今日流量 </span>
                 <b>13260</b>
               </div>
             </el-col>
             <el-col :span="8">
-              <div class="car-item">
+              <div class="card-item">
                 <span class="user-number">
                   <i class="el-icon-s-custom" />
                 </span>
@@ -41,7 +41,7 @@
               </div>
             </el-col>
             <el-col :span="8">
-              <div class="car-item">
+              <div class="card-item">
                 <span class="feedback">
                   <i class="el-icon-star-on" />
                 </span>

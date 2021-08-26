@@ -1334,9 +1334,12 @@ $mainHight: 100vh;
             border-color: #dcf3d1;
             color: #52c41a;
         }
-        .car-item {
+        .card-item {
+            padding-right: 20px;
             text-align: right;
+            margin-top: 12px;
             b {
+                margin-top: 6px;
                 display: block;
             }
         }

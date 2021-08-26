@@ -64,7 +64,7 @@ export default {
     },
     handleReload() {
       this.reload = true
-      emitter.$emit('reload')
+      emitter.emit('reload')
       setTimeout(() => {
         this.reload = false
       }, 500)

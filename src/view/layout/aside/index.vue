@@ -4,7 +4,7 @@
       <transition :duration="{ enter: 800, leave: 100 }" mode="out-in" name="el-fade-in-linear">
         <el-menu
           :collapse="isCollapse"
-          :collapse-transition="true"
+          :collapse-transition="false"
           :default-active="active"
           :background-color="sideMode"
           :active-text-color="activeColor"
